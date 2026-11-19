@@ -15,12 +15,11 @@
 /* Config                                                              */
 /* ------------------------------------------------------------------ */
 
-// fill after deploy — the deployed AgentVouch contract on BSC mainnet.
-const CONTRACT_ADDRESS = "0x0000000000000000000000000000000000000000";
+// Deployed 2026-11-19 — AgentVouch contract on BSC mainnet.
+const CONTRACT_ADDRESS = "0x5c3622d56d2c94DC110bF1158491Ed4fB61b44a9";
 
-// fill after deploy — the block the contract was deployed in. Event scanning
-// starts here; leave at 0 and the leaderboard stays in "not deployed" state.
-const DEPLOY_BLOCK = 0;
+// Deploy block (tx 0xb450dfce4e969bffeda9389ffe5f7beb39e4b66181c8bd05cbcfd3162857ded7).
+const DEPLOY_BLOCK = 134448598;
 
 // Agent ID registry (SPACE ID Agent ID, ERC-721) on BSC mainnet.
 const REGISTRY_ADDRESS = "0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F";

@@ -16,7 +16,7 @@ checks `balanceOf` on the registry for both the voucher and the target on
 every vouch.
 
 - Registry (BSC mainnet): `0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F`
-- Contract: *(fill in after deploy)*
+- Contract: [0x5c3622d56d2c94DC110bF1158491Ed4fB61b44a9](https://bscscan.com/address/0x5c3622d56d2c94DC110bF1158491Ed4fB61b44a9) (BSC mainnet, deployed 2026-11-19, block 134448598)
 
 ## The contract
 
