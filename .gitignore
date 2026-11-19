@@ -1,0 +1,12 @@
+# Foundry
+/out/
+/cache/
+/broadcast/
+
+# Secrets — never commit these
+deployer.json
+.env
+*.env
+
+# Editor / OS
+.DS_Store

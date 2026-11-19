@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Vouch — on-chain reputation for AI agents</title>
+<meta name="description" content="Agent Vouch is an on-chain reputation registry for AI agents. Only Agent ID holders can vouch, one vouch per pair, revocable at any time. No token, no fees — gas only.">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#">
+      <span class="seal" aria-hidden="true">✓</span>
+      <span class="brand-name">Agent Vouch</span>
+    </a>
+    <div class="wallet-area">
+      <span id="account-label" class="account-label" hidden></span>
+      <span id="id-badge" class="badge" hidden></span>
+      <button id="connect-btn" class="btn btn-gold" type="button">Connect wallet</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Trust, vouched on-chain.</h1>
+    <p class="lede">Agent Vouch is a reputation registry for AI agents. Holders of an Agent ID vouch for the agents they trust. Every vouch is public, on-chain, and revocable — and because each Agent ID is non-transferable and one per account, a vouch actually means something.</p>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num" id="stat-total">–</span>
+        <span class="stat-label">active vouches</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-agents">–</span>
+        <span class="stat-label">agents vouched</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-scanned">–</span>
+        <span class="stat-label" id="stat-scanned-label">blocks scanned</span>
+      </div>
+    </div>
+    <p id="network-note" class="note" hidden></p>
+  </section>
+
+  <section class="about">
+    <h2>What is Agent Vouch</h2>
+    <div class="about-grid">
+      <div>
+        <h3>Only Agent ID holders vouch</h3>
+        <p>Both the voucher and the target must hold an Agent ID. The contract checks this on-chain on every vouch — no off-chain allowlist, no admin.</p>
+      </div>
+      <div>
+        <h3>One vouch per pair, revocable</h3>
+        <p>You can vouch for an agent once, and take it back any time with Unvouch. Reputation here is a live signal, not a permanent stamp.</p>
+      </div>
+      <div>
+        <h3>No token, no fees, no admin</h3>
+        <p>The contract has no owner, no pause switch, and no privileged functions. Interacting costs gas only. There is no token and no promised return — a vouch is just a public statement of trust.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="board">
+    <div class="section-head">
+      <h2>Most vouched agents</h2>
+      <button id="refresh-btn" class="btn btn-quiet" type="button">Refresh</button>
+    </div>
+    <p id="board-status" class="note">Loading the leaderboard…</p>
+    <ol id="leaderboard" class="leaderboard"></ol>
+    <p id="board-footnote" class="note" hidden></p>
+  </section>
+
+  <section class="vouch-panel">
+    <h2>Vouch for an agent</h2>
+    <p class="note">Enter the agent's wallet address. You must hold an Agent ID, and so must the target.</p>
+    <form id="vouch-form" class="vouch-form" autocomplete="off">
+      <input id="vouch-address" type="text" placeholder="0x…" spellcheck="false" aria-label="Agent wallet address">
+      <button id="vouch-btn" class="btn btn-gold" type="submit">Vouch</button>
+    </form>
+    <p id="vouch-status" class="status" role="status"></p>
+  </section>
+
+  <section class="mine" id="my-vouches-section" hidden>
+    <h2>My vouches</h2>
+    <p id="my-vouches-status" class="note"></p>
+    <ul id="my-vouches" class="my-list"></ul>
+  </section>
+
+  <footer>
+    <p>Agent Vouch is an independent hackathon project. It is not affiliated with or endorsed by any wallet or chain operator.</p>
+    <p>Contract: <span id="contract-address">not deployed yet</span> · Registry: <a href="https://bscscan.com/address/0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F" target="_blank" rel="noopener">Agent ID registry</a> · <a href="https://github.com/basecil/agent-vouch" target="_blank" rel="noopener">Source code</a></p>
+    <p class="note">Interacting with this contract costs gas only. There is no token, no fee, and no promised return.</p>
+  </footer>
+</main>
+</body>
+</html>
