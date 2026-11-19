@@ -387,7 +387,7 @@ async function checkHolderStatus(provider, account) {
 
 async function connectWallet() {
   if (!window.ethereum) {
-    setStatus($("vouch-status"), "No wallet detected. Install a wallet with an injected provider (e.g. MetaMask or Binance Wallet) and try again.", "error");
+    setStatus($("vouch-status"), "No wallet detected. Install a wallet with an injected provider and try again.", "error");
     return;
   }
 
